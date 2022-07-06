@@ -35,6 +35,25 @@ const getState =({getStore, getActions, setStore})=>{
                     .then((resp) => resp.json())
                     .then((response) => setStore({ naves: response.results }));
             },
+            addFavorito: (nombre) =>{
+            
+                const store = getStore();  
+    
+                //const vari = [...store.favoritosList,nombre];
+                setStore({favoritosList:[...store.favoritosList,nombre]})
+                console.log(store.favoritosList)
+                //setStore({favoritosList: vari});
+    
+            },
+            eliminarFavorito:(i) =>{
+
+                const store = getStore();
+    
+                const newList = store.favoritosList.filter((index)=>index !==i)
+    
+                setStore({favoritosList:newList});
+                console.log(newList);
+              },
         }
 
     }

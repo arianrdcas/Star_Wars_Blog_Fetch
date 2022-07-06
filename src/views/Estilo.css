@@ -4,7 +4,6 @@
 
 .d-flex::-webkit-scrollbar{
     scrollbar-width: 100px;
-
 }
 
 .d-flex .card{
