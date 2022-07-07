@@ -7,7 +7,7 @@ import { IoPlanetSharp } from "react-icons/io5";
 import { SiSkyliner } from "react-icons/si";
 import { GiAlienBug } from "react-icons/gi";
 
-const Home = () => {
+const Home = (props) => {
   const { store, actions } = useContext(Context);
 
   useEffect(() => {
@@ -17,10 +17,20 @@ const Home = () => {
   }, []);
 
   const addFavorito = (nombre) => {
-    
     actions.addFavorito(nombre)
   }
 
+  const sendSinglePersonaje = (url) => {
+    actions.fetchSinglePersonaje(url)
+  }
+
+  const sendSinglePlaneta = (url) => {
+    actions.fetchSinglePlaneta(url)
+  }
+
+  const sendSingleNave = (url) => {
+    actions.fetchSingleNave(url)
+  }
 
 
 
@@ -34,26 +44,27 @@ const Home = () => {
           <div className="row">
             <h1 className="mt-5 mb-4 text-danger">Personajes <GiAlienBug/></h1>
             <div className="d-flex flex-nowrap py-1">
-              {store.personajes.map((personajes, id) => {
+              {store.personajes.map((item, i) => {
                 return (
-                    <div className="col-12 col-md-6 col-lg-4 col-xl-3">  
-                      <div key={id} className="card" style={{ width: "18rem" }}>
+                    <div key={i} className="col-12 col-md-6 col-lg-4 col-xl-3"> 
+                      <div  className="card" style={{ width: "18rem" }}>
                         <div className="card-body">
-                          <h5 className="card-title">Nombre: {personajes.name}</h5>
-                          <p className="card-text">Gender: {personajes.gender}</p>
-                          <p className="card-text">Hair color: {personajes.hair_color}</p>
-                          <p className="card-text">Eye color: {personajes.eye_color}</p>
+                          <h5 className="card-title">Nombre: {item.name}</h5>
+                          <p className="card-text">Gender: {item.gender}</p>
+                          <p className="card-text">Hair color: {item.hair_color}</p>
+                          <p className="card-text">Eye color: {item.eye_color}</p>
                           <Link
                             to="/detalle_personaje"
                             type="button"
                             className="btn btn-outline-primary"
+                            onClick={()=>sendSinglePersonaje(item.url)}
                           >
                             Detalles
                           </Link>
                           <button
                             type="button"
                             className="btn btn-outline-warning float-end"
-                            onClick={()=>addFavorito(personajes.name)}
+                            onClick={()=>addFavorito(item.name)}
                           >
                             <IoMdHeartEmpty/>
                           </button>
@@ -69,25 +80,27 @@ const Home = () => {
           <div className="row">
             <h1 className="mt-5 mb-4 text-danger">Planetas <IoPlanetSharp/></h1>
             <div className="d-flex flex-nowrap py-1">
-              {store.planetas.map((planetas, id) => {
+              {store.planetas.map((item, i) => {
                 return (
-                    <div className="col-12 col-md-6 col-lg-4 col-xl-3">  
-                      <div key={id} className="card" style={{ width: "18rem" }}>
+                    <div key={i} className="col-12 col-md-6 col-lg-4 col-xl-3">  
+                      <div className="card" style={{ width: "18rem" }}>
                         <div className="card-body">
-                          <h5 className="card-title">Nombre: {planetas.name}</h5>
-                          <p className="card-text">Periodo de Rotacion: {planetas.rotation_period}</p>
-                          <p className="card-text">Gravedad: {planetas.gravity}</p>
-                          <p className="card-text">Habitantes: {planetas.population}</p>
+                          <h5 className="card-title">Nombre: {item.name}</h5>
+                          <p className="card-text">Periodo de Rotacion: {item.rotation_period}</p>
+                          <p className="card-text">Gravedad: {item.gravity}</p>
+                          <p className="card-text">Habitantes: {item.population}</p>
                           <Link
-                            to="/detalle_personaje"
+                            to="/detalle_planeta"
                             type="button"
                             className="btn btn-outline-primary"
+                            onClick={()=>sendSinglePlaneta(item.url)}
                           >
                             Detalles
                           </Link>
                           <button
                             type="button"
                             className="btn btn-outline-warning float-end"
+                            onClick={()=>addFavorito(item.name)}
                           >
                             <IoMdHeartEmpty/>
                           </button>
@@ -103,25 +116,27 @@ const Home = () => {
         <div className="row">
             <h1 className="mt-5 mb-4 text-danger">Naves <SiSkyliner/></h1>
             <div className="d-flex flex-nowrap py-1">
-              {store.naves.map((naves, id) => {
+              {store.naves.map((item,i) => {
                 return (
-                  <div className="col-12 col-md-6 col-lg-4 col-xl-3">
-                    <div key={id} className="card"  style={{ width: "18rem" }}>
+                  <div key={i} className="col-12 col-md-6 col-lg-4 col-xl-3">
+                    <div className="card"  style={{ width: "18rem" }}>
                       <div className="card-body">
-                        <h5 className="card-title">Nombre: {naves.name}</h5>
-                        <p className="card-text">Modelo: {naves.model}</p>
-                        <p className="card-text">Pasajeros: {naves.passengers}</p>
-                        <p className="card-text">Costo: {naves.cost_in_credits}</p>
+                        <h5 className="card-title">Nombre: {item.name}</h5>
+                        <p className="card-text">Modelo: {item.model}</p>
+                        <p className="card-text">Pasajeros: {item.passengers}</p>
+                        <p className="card-text">Costo: {item.cost_in_credits}</p>
                         <Link
-                          to="/detalle_personaje"
+                          to="/detalle_nave"
                           type="button"
                           className="btn btn-outline-primary"
+                          onClick={()=>sendSingleNave(item.url)}
                         >
                           Detalles
                         </Link>
                         <button
                           type="button"
                           className="btn btn-outline-warning float-end"
+                          onClick={()=>addFavorito(item.name)}
                         >
                           <IoMdHeartEmpty/>
                         </button>

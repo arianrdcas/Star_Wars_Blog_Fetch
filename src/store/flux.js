@@ -5,7 +5,8 @@ const getState =({getStore, getActions, setStore})=>{
             personajes: [],
             planetas:[],
             naves:[],
-            favoritosList:[], 
+            favoritosList:[],
+            single: [] 
         },
 
         actions: {
@@ -17,7 +18,7 @@ const getState =({getStore, getActions, setStore})=>{
                 })
                     .then((resp) => resp.json())
                     .then((response) => setStore({ personajes: response.results }));
-            },
+            }, 
 
             fetchPlanetas: () => {
                 fetch("https://swapi.dev/api/planets", {
@@ -36,9 +37,7 @@ const getState =({getStore, getActions, setStore})=>{
                     .then((response) => setStore({ naves: response.results }));
             },
             addFavorito: (nombre) =>{
-            
                 const store = getStore();  
-    
                 //const vari = [...store.favoritosList,nombre];
                 setStore({favoritosList:[...store.favoritosList,nombre]})
                 console.log(store.favoritosList)
@@ -53,7 +52,56 @@ const getState =({getStore, getActions, setStore})=>{
     
                 setStore({favoritosList:newList});
                 console.log(newList);
-              },
+            },
+            fetchSinglePersonaje:(url) => {
+                //console.log(url)
+                const actions = getActions()
+                fetch(url,{
+                    method: "GET",
+                    headers:{"Content-type":"application/json"},
+                })
+                    .then((resp)=>resp.json())
+                    .then((response)=>{actions.setterList(response)})
+        
+                const store = getStore()
+                console.log(store.single)
+            },
+
+            fetchSinglePlaneta:(url) => {
+                //console.log(url)
+                const actions = getActions()
+                fetch(url,{
+                    method: "GET",
+                    headers:{"Content-type":"application/json"},
+                })
+                    .then((resp)=>resp.json())
+                    .then((response)=>{actions.setterList(response)})
+        
+                const store = getStore()
+                console.log(store.single)
+            },
+
+            fetchSingleNave:(url) => {
+                //console.log(url)
+                const actions = getActions()
+                fetch(url,{
+                    method: "GET",
+                    headers:{"Content-type":"application/json"},
+                })
+                    .then((resp)=>resp.json())
+                    .then((response)=>{actions.setterList(response)})
+        
+                const store = getStore()
+                console.log(store.single)
+            },
+
+
+            setterList:(response)=>{
+                const store = getStore()
+                setStore({single:response})
+                console.log(store.single)
+            }
+
         }
 
     }

@@ -51,7 +51,7 @@ const Navbar = () => {
                   )
                 }):
                 <li>
-                  <a className="dropdown-item" href="#">  Agrega favoritos </a>
+                  <a className="dropdown-item" href="#">Agrega favoritos </a>
                 </li>
                 }
               </ul>
