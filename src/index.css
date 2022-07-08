@@ -5,10 +5,12 @@ body {
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-image:url( 
+    /* background-image:url( 
       https://viajes.nationalgeographic.com.es/medio/2020/04/01/6-via-lactea_57769b72_1254x836.jpg);
-    
-  }
+      background-size: 100% auto;
+      background-position: center top;
+      background-repeat: no-repeat;*/
+  } 
   
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

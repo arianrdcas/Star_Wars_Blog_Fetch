@@ -8,12 +8,12 @@ const Detalle_Planeta = (props) => {
 
   return (
     <>
-      <div className="card my-3 bg-transparent text-white container" style={{ maxWidth: 1000 }}>
+      <div className="card my-3 bg-transparent text-white fw-bold container" style={{ maxWidth: 1000 }}>
         <div className="row g-0 ">
           <div className="col-md-8">
             <div className="card-body">
-              <h5 className="card-title">Name: {store.single.name}</h5>
-              <h6>Descripcion:</h6> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac est eu nibh eleifend auctor sit amet id ex. Integer ullamcorper at diam lobortis pellentesque. In hac habitasse platea dictumst. Nunc metus arcu, gravida pharetra augue vel, convallis sagittis turpis. Morbi vehicula leo eget felis porta aliquet nec vitae turpis. Nullam semper consequat dui, quis scelerisque ligula dictum malesuada. Aliquam fermentum imperdiet sem, placerat facilisis diam posuere sed. Sed nisl odio, viverra et magna et, condimentum facilisis velit. Curabitur pharetra tempor hendrerit. Proin semper purus enim, varius viverra sem rhoncus in. Quisque viverra magna et libero dignissim imperdiet. Donec nibh augue, consectetur at vestibulum id, facilisis eget quam. Nulla tempor sodales sapien, id interdum augue.</p>
+              <h3 className="card-title">Name: {store.single.name}</h3>
+              <h4>Descripcion:</h4> <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac est eu nibh eleifend auctor sit amet id ex. Integer ullamcorper at diam lobortis pellentesque. In hac habitasse platea dictumst. Nunc metus arcu, gravida pharetra augue vel, convallis sagittis turpis. Morbi vehicula leo eget felis porta aliquet nec vitae turpis. Nullam semper consequat dui, quis scelerisque ligula dictum malesuada. Aliquam fermentum imperdiet sem, placerat facilisis diam posuere sed. Sed nisl odio, viverra et magna et, condimentum facilisis velit. Curabitur pharetra tempor hendrerit. Proin semper purus enim, varius viverra sem rhoncus in. Quisque viverra magna et libero dignissim imperdiet. Donec nibh augue, consectetur at vestibulum id, facilisis eget quam. Nulla tempor sodales sapien, id interdum augue.</p>
             </div>
           </div>
           <hr className="border border-primary border-5"/>
