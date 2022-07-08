@@ -15,7 +15,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-light bg-light border-bottom border-primary border-2">
+    <nav className="navbar navbar-light bg-transparent border-bottom border-primary border-2">
       <div className="container">
         <Link to="/" className="navbar-brand">
           <img
@@ -41,17 +41,17 @@ const Navbar = () => {
                 {store.favoritosList.length > 0 ? store.favoritosList.map((i) => {
                   return(
                     <li key = {i} >
-                      <a className="dropdown-item" href="#"> {i}
+                      <Link className="dropdown-item"> 
                         <button className="mx-2 border-0 bg-transparent" 
                           onClick={()=>eliminarFavorito(i)}>
                             <AiFillDelete/>
                         </button> 
-                      </a>  
+                      </Link>  
                     </li>
                   )
                 }):
                 <li>
-                  <a className="dropdown-item" href="#">Agrega favoritos </a>
+                  <Link className="dropdown-item" href="#">Agrega favoritos </Link>
                 </li>
                 }
               </ul>

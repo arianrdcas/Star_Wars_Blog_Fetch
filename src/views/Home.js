@@ -47,7 +47,7 @@ const Home = (props) => {
               {store.personajes.map((item, i) => {
                 return (
                     <div key={i} className="col-12 col-md-6 col-lg-4 col-xl-3"> 
-                      <div  className="card" style={{ width: "18rem" }}>
+                      <div  className="card bg-transparent text-white" style={{ width: "18rem" }}>
                         <div className="card-body">
                           <h5 className="card-title">Nombre: {item.name}</h5>
                           <p className="card-text">Gender: {item.gender}</p>
@@ -83,7 +83,7 @@ const Home = (props) => {
               {store.planetas.map((item, i) => {
                 return (
                     <div key={i} className="col-12 col-md-6 col-lg-4 col-xl-3">  
-                      <div className="card" style={{ width: "18rem" }}>
+                      <div className="card bg-transparent text-white" style={{ width: "18rem" }}>
                         <div className="card-body">
                           <h5 className="card-title">Nombre: {item.name}</h5>
                           <p className="card-text">Periodo de Rotacion: {item.rotation_period}</p>
@@ -119,7 +119,7 @@ const Home = (props) => {
               {store.naves.map((item,i) => {
                 return (
                   <div key={i} className="col-12 col-md-6 col-lg-4 col-xl-3">
-                    <div className="card"  style={{ width: "18rem" }}>
+                    <div className="card bg-transparent text-white"  style={{ width: "18rem" }}>
                       <div className="card-body">
                         <h5 className="card-title">Nombre: {item.name}</h5>
                         <p className="card-text">Modelo: {item.model}</p>
